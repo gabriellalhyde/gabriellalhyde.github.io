@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Gabby Hyde — Accounting student and emerging accounting professional focused on technology, process improvement, and client service."
+  />
+  <title>Gabby Hyde | Accounting & Technology</title>
+
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e7eaf0;
+      --accent: #6b4eff;
+      --accent-dark: #4f38d8;
+      --accent-soft: #eeeaff;
+      --shadow: 0 18px 50px rgba(31, 41, 55, 0.08);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 248, 251, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(231, 234, 240, 0.85);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.08rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    header {
+      padding: 90px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 6.6rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      max-width: 850px;
+    }
+
+    .hero-copy {
+      margin-top: 28px;
+      max-width: 720px;
+      font-size: 1.15rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+    }
+
+    .btn-secondary:hover {
+      border-color: #cbc3ff;
+      color: var(--accent-dark);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #1e2540, #2f3560);
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card .label {
+      color: #c7cae2;
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .hero-card h2 {
+      font-size: 2rem;
+      margin-top: 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.09);
+      padding: 18px;
+      border-radius: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .stat span {
+      color: #d5d8ea;
+      font-size: 0.88rem;
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-title p {
+      max-width: 560px;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.035);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f0f2f7;
+      color: #4a5368;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+    }
+
+    .role {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 30px;
+    }
+
+    .role-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .role-main h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.025em;
+    }
+
+    .role-main h4 {
+      margin: 3px 0 14px;
+      color: var(--accent-dark);
+      font-size: 0.98rem;
+    }
+
+    .role-main ul {
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    .role-main li + li {
+      margin-top: 8px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #485166;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .resume-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .resume-box h3 {
+      margin-bottom: 14px;
+      font-size: 1.25rem;
+    }
+
+    .resume-box p,
+    .resume-box li {
+      color: var(--muted);
+    }
+
+    .resume-box ul {
+      padding-left: 18px;
+    }
+
+    .contact {
+      background: #171d2f;
+      color: white;
+      border-radius: 30px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .contact p {
+      color: #cfd3e4;
+      margin-top: 12px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 13px 15px;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 38px 0 50px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .cards,
+      .resume-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .role {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      header {
+        padding-top: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">Gabby Hyde</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top">
+    <div class="container hero">
+
+      <div>
+        <span class="eyebrow">
+          Accounting • Technology • Client Service
+        </span>
+
+        <h1>
+          Building a career where accounting meets innovation.
+        </h1>
+
+        <p class="hero-copy">
+          I’m Gabby Hyde, an accounting student at Rutgers Business School
+          with hands-on experience in bookkeeping, client communication,
+          team leadership, financial reporting, and process improvement.
+          I’m especially interested in roles that combine accounting,
+          technology, controls, and smarter business processes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experience">
+            View Experience
+          </a>
+
+          <a class="btn btn-secondary" href="#resume">
+            Resume Highlights
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+
+        <div class="label">
+          Current Focus
+        </div>
+
+        <h2>
+          Accounting with a technology-forward mindset.
+        </h2>
+
+        <div class="stat-grid">
+
+          <div class="stat">
+            <strong>30+</strong>
+            <span>client accounts supported</span>
+          </div>
+
+          <div class="stat">
+            <strong>50+</strong>
+            <span>bank & credit-card reconciliations monthly</span>
+          </div>
+
+          <div class="stat">
+            <strong>5</strong>
+            <span>interns managed and trained</span>
+          </div>
+
+          <div class="stat">
+            <strong>QBO</strong>
+            <span>ProAdvisor Certified</span>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <div>
+            <span class="eyebrow">About Me</span>
+            <h2>Detail-oriented, adaptable, and career-focused.</h2>
+          </div>
+
+          <p>
+            My experience has given me exposure to both the technical side
+            of accounting and the relationship side of client service.
+            I enjoy improving workflows, solving discrepancies, learning
+            new systems, and taking ownership of recurring processes.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+
+            <span class="tag">Accounting</span>
+
+            <h3>Hands-on financial work</h3>
+
+            <p>
+              Monthly close support, reconciliations, journal entries,
+              payroll entries, account cleanup, and financial review.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <span class="tag">Technology</span>
+
+            <h3>Process improvement mindset</h3>
+
+            <p>
+              Experienced with QuickBooks Online, Financial Cents,
+              Excel, AI-assisted workflows, and standardized recurring
+              processes.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <span class="tag">Leadership</span>
+
+            <h3>Team and client responsibility</h3>
+
+            <p>
+              Manage client relationships, train interns, coordinate
+              deadlines, and serve as Financial Director for
+              Beta Alpha Psi.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <div>
+            <span class="eyebrow">Experience</span>
+            <h2>Professional experience.</h2>
+          </div>
+
+          <p>
+            A mix of bookkeeping, accounting operations, client service,
+            and team leadership across small-business portfolios.
+          </p>
+
+        </div>
+
+        <div class="timeline">
+
+          <article class="role">
+
+            <div class="role-meta">
+              <strong>May 2026 – Present</strong><br>
+              OneBooks, LLC
+            </div>
+
+            <div class="role-main">
+
+              <h3>Accounting Manager</h3>
+
+              <h4>
+                Bookkeeping • Client Management • Team Leadership
+              </h4>
+
+              <ul>
+
+                <li>
+                  Manage bookkeeping and financial workflows for
+                  30+ client accounts across multiple industries.
+                </li>
+
+                <li>
+                  Serve as a primary client contact for questions,
+                  documentation requests, and recurring accounting needs.
+                </li>
+
+                <li>
+                  Complete and review 50+ bank and credit-card
+                  reconciliations each month.
+                </li>
+
+                <li>
+                  Train and manage a team of five interns on
+                  reconciliations, bookkeeping procedures, and
+                  financial review.
+                </li>
+
+                <li>
+                  Use QuickBooks Online, Financial Cents, and
+                  AI-assisted tools to improve recurring workflows
+                  and reduce inefficiencies.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+          <article class="role">
+
+            <div class="role-meta">
+              <strong>August 2026 – Present</strong><br>
+              Gina Lipman Business Services
+            </div>
+
+            <div class="role-main">
+
+              <h3>Accounting Associate</h3>
+
+              <h4>
+                Small-Business Bookkeeping • Journal Entries • Client Support
+              </h4>
+
+              <ul>
+
+                <li>
+                  Independently manage bookkeeping responsibilities
+                  for a portfolio of small-business clients.
+                </li>
+
+                <li>
+                  Prepare payroll journal entries, loan amortization
+                  entries, depreciation adjustments, deposits, and checks.
+                </li>
+
+                <li>
+                  Communicate directly with clients to obtain statements,
+                  resolve questions, and support accurate monthly reporting.
+                </li>
+
+                <li>
+                  Work across varied accounting procedures and
+                  client-specific processes, including non-bank-feed workflows.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+          <article class="role">
+
+            <div class="role-meta">
+              <strong>Prior Role</strong><br>
+              OneBooks, LLC
+            </div>
+
+            <div class="role-main">
+
+              <h3>Accounting Intern</h3>
+
+              <h4>
+                Bookkeeping • Reconciliations • Financial Operations
+              </h4>
+
+              <ul>
+
+                <li>
+                  Supported bookkeeping, transaction categorization,
+                  account reconciliations, and cleanup projects.
+                </li>
+
+                <li>
+                  Earned expanded responsibility and was promoted
+                  into an Accounting Manager role.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="leadership">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <div>
+            <span class="eyebrow">Leadership</span>
+            <h2>Campus leadership and involvement.</h2>
+          </div>
+
+          <p>
+            I stay involved in organizations that support professional
+            development, accounting education, and leadership experience.
+          </p>
+
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+
+            <span class="tag">Beta Alpha Psi</span>
+
+            <h3>Financial Director</h3>
+
+            <p>
+              Manage chapter finances, budgeting, reconciliations,
+              sponsorship payments, and event-related financial coordination.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <span class="tag">Rutgers</span>
+
+            <h3>Road to CPA & Accounting Association</h3>
+
+            <p>
+              Participate in accounting-focused professional development,
+              networking, and career preparation.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <span class="tag">Teaching</span>
+
+            <h3>Undergraduate TA</h3>
+
+            <p>
+              Previously served as an Undergraduate TA for Studio Physics I,
+              supporting students in a collaborative learning environment.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="resume">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <div>
+            <span class="eyebrow">Resume</span>
+            <h2>Career snapshot.</h2>
+          </div>
+
+          <p>
+            This section works as a web-based resume summary.
+            You can also link your actual PDF resume below.
+          </p>
+
+        </div>
+
+        <div class="resume-grid">
+
+          <div class="resume-box">
+
+            <h3>Education</h3>
+
+            <p>
+              <strong>Rutgers University – New Brunswick</strong>
+            </p>
+
+            <p>Rutgers Business School</p>
+
+            <p>Accounting Major</p>
+
+          </div>
+
+          <div class="resume-box">
+
+            <h3>Certification</h3>
+
+            <p>
+              <strong>
+                QuickBooks Online ProAdvisor Certified
+              </strong>
+            </p>
+
+            <p>
+              Experience with cloud accounting workflows,
+              client bookkeeping, reconciliations,
+              and financial review.
+            </p>
+
+          </div>
+
+          <div class="resume-box">
+
+            <h3>Technical Skills</h3>
+
+            <div class="skills">
+
+              <span class="skill">
+                QuickBooks Online
+              </span>
+
+              <span class="skill">
+                Microsoft Excel
+              </span>
+
+              <span class="skill">
+                Financial Cents
+              </span>
+
+              <span class="skill">
+                Tableau
+              </span>
+
+              <span class="skill">
+                AI Workflow Tools
+              </span>
+
+              <span class="skill">
+                Journal Entries
+              </span>
+
+              <span class="skill">
+                Reconciliations
+              </span>
+
+              <span class="skill">
+                Payroll Accounting
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="resume-box">
+
+            <h3>Career Interests</h3>
+
+            <ul>
+
+              <li>
+                Technology assurance and digital assurance
+              </li>
+
+              <li>
+                Accounting systems and internal controls
+              </li>
+
+              <li>
+                Process improvement and automation
+              </li>
+
+              <li>
+                Audit and assurance
+              </li>
+
+              <li>
+                Client-facing accounting and advisory work
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="hero-actions" style="margin-top: 26px;">
+
+          <a
+            class="btn btn-primary"
+            href="#"
+            onclick="alert('Replace this with your resume PDF link.'); return false;"
+          >
+            Download Resume
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="contact">
+
+          <div>
+
+            <span class="eyebrow">
+              Contact
+            </span>
+
+            <h2>
+              Let’s connect.
+            </h2>
+
+            <p>
+              I’m interested in internship and early-career opportunities
+              in accounting, assurance, technology risk,
+              and process improvement.
+            </p>
+
+          </div>
+
+          <div class="contact-links">
+
+            <a href="mailto:your-email@example.com">
+              Email: your-email@example.com
+            </a>
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn: Add your profile URL
+            </a>
+
+            <a
+              href="#"
+              onclick="alert('Add your resume PDF link here.'); return false;"
+            >
+              Resume PDF
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="container">
+      © 2026 Gabby Hyde. Built as a personal branding and career portfolio website.
+    </div>
+
+  </footer>
+
+</body>
+</html>
